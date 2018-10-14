@@ -43,10 +43,12 @@ local function _generate_chunks()
 end
 
 local function _animate(sp)
-  sp.tick=(sp.tick+1)%sp.step
-  if (sp.tick == 0) then
-    sp.frame = sp.frame%#sp.anim[sp.state]+1
-    sp.chunk = sp.anim[sp.state][sp.frame]
+    if sp.anim ~= nil then
+    sp.tick=(sp.tick+1)%sp.step
+    if (sp.tick == 0) then
+      sp.frame = sp.frame%#sp.anim[sp.state]+1
+      sp.chunk = sp.anim[sp.state][sp.frame]
+    end
   end
 end
 
@@ -73,6 +75,7 @@ end
 
 function love.draw()
   love.graphics.setCanvas(canvas)
+  love.graphics.clear()
   sm:draw()
   love.graphics.setCanvas()
 

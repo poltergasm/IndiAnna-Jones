@@ -13,6 +13,17 @@ actors.player = {
   }
 }
 
+actors.blob = {
+  tick  = 0,
+  frame = 1,
+  step  = 4,
+  state = "walk",
+  chunk = 31,
+  anim  = {
+    walk = {33, 34}
+  }
+}
+
 function actors:add(o)
   sprites[#sprites+1] = o
 end
